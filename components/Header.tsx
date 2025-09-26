@@ -15,6 +15,7 @@ export default function Header() {
             className="h-8 w-auto cursor-pointer"
           />
         </Link>
+        <nav className="hidden sm:block"></nav>
       </div>
     </header>
   );
