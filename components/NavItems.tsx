@@ -5,6 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
+/**
+ * Render a responsive list of navigation links and highlight the currently active route.
+ *
+ * The component maps `NAV_ITEMS` to Link elements and determines active state using the current
+ * pathname: the root path (`"/"`) is treated as an exact match; other paths are active when the
+ * pathname starts with the item's href. The active link receives the `text-gray-100` class.
+ *
+ * @returns The navigation list as a JSX element
+ */
 export default function NavItems() {
   const pathname = usePathname();
 

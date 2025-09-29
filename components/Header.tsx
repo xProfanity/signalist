@@ -4,6 +4,11 @@ import React from "react";
 import NavItems from "./NavItems";
 import UserDropDown from "./UserDropDown";
 
+/**
+ * Render the site header containing the logo, main navigation, and user menu.
+ *
+ * @returns The header JSX element with a linked logo ("/"), a responsive navigation area, and a user dropdown.
+ */
 export default function Header() {
   return (
     <header className="sticky top-0 header">
