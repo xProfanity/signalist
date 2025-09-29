@@ -17,6 +17,13 @@ import {
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 
+/**
+ * Renders a user avatar button that opens a dropdown showing the user's name, email, and a logout action.
+ *
+ * The displayed user information is statically defined inside the component; selecting "Logout" navigates to `/sign-in`.
+ *
+ * @returns A JSX element rendering the user dropdown menu
+ */
 export default function UserDropDown() {
   const router = useRouter();
   const handleSignOut = () => {
