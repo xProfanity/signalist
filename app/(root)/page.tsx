@@ -4,7 +4,7 @@ import {
   MARKET_DATA_WIDGET_CONFIG,
   MARKET_OVERVIEW_WIDGET_CONFIG,
   TOP_STORIES_WIDGET_CONFIG,
-} from "@/lib/constanst";
+} from "@/lib/constants";
 
 export default function Page() {
   const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-`;
