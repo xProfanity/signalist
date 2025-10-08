@@ -46,9 +46,9 @@ export default function SignUp() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <InputField
-          name="Full name"
-          label="full name"
-          placeholder="john doe"
+          name="fullName"
+          label="Full Name"
+          placeholder="John Doe"
           register={register}
           error={errors.fullName}
           validation={{ required: "Full name is required", minLength: 2 }}
@@ -62,8 +62,10 @@ export default function SignUp() {
           error={errors.email}
           validation={{
             required: "Email is required",
-            pattern: /^\w+@\w+\.\w+$/,
-            message: "Email address is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Please enter a valid email address",
+            },
           }}
         />
 
