@@ -34,8 +34,6 @@ export const connectToDatabase = async () => {
 
     mongoose.connection.on("error", (error) => {
       console.error("MongoDB connection error", error);
-
-      throw error;
     });
 
     mongoose.connection.on("disconnected", () => {
