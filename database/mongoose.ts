@@ -16,7 +16,8 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
-  if (!MONGODB_URI) throw new Error("MONGODB_URI must be set within .env");
+  if (!MONGODB_URI)
+    throw new Error("MONGODB_URI environment variable required!");
 
   if (cached.conn) return cached.conn;
 
@@ -26,7 +27,22 @@ export const connectToDatabase = async () => {
 
   try {
     cached.conn = await cached.promise;
+
+    mongoose.connection.on("connected", () => {
+      console.log("MongoDB connected successfully");
+    });
+
+    mongoose.connection.on("error", (error) => {
+      console.error("MongoDB connection error", error);
+    });
+
+    mongoose.connection.on("disconnected", () => {
+      console.warn("MongoDB connection disconnected");
+      cached.conn = null;
+      cached.promise = null;
+    });
   } catch (error) {
+    cached.conn = null;
     cached.promise = null;
     throw error;
   }
